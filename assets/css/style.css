@@ -5,4 +5,90 @@ body {
     text-align: center;
     font-family: 'Baloo Chettan 2', cursive;
     color: white;
+    /* height: 90vh; */
 }
+
+header{
+    background-color: white;
+    color: black;
+}
+
+section{
+    margin: 1rem auto;
+    padding: 1rem;
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.radio-buttons{
+    width: 80%;
+    margin: 0 auto;
+}
+
+input:not(:last-of-type){
+    margin-right: 1.5rem;
+    
+}
+
+
+.rounds-container{
+    border: 2px solid white;
+} 
+
+.counter-container{
+   display: flex;
+   position: relative;
+   border: 2px solid white;
+   height: 5rem;
+}
+
+.points-container{
+    display: flex;
+    font-size: 3rem;
+    margin: 1rem;
+    gap: 2rem;
+}
+
+.team{
+    position: absolute;
+    background-color: red;
+    height: 2rem;
+    width: 4rem;
+}
+
+.team:first-of-type{
+    left: -2rem;
+}
+.team:nth-child(2){
+    right: -2rem;
+}
+
+
+.game-button{
+    color:white;
+    background-color: black;
+    width: 70px;
+    height: 70px;
+    border: 2px solid white;
+    border-radius: 50%;
+    margin: 1rem;
+}
+
+.game-button:hover{
+    border: 2px solid rgb(77, 203, 77);
+    color: rgb(77, 203, 77);
+}
+
+#newGame{
+    color: brown;
+    background: black;
+    text-decoration: underline;
+}
+
+#newGame:hover{
+    border: 1px solid brown;
+}
+
+
