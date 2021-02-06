@@ -1,13 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projekt Name</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2&display=swap" rel="stylesheet">
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Rock Papier Scissors</h1>
+    </header>
+    <main>
+      <section class="rounds-container">
+        <h2>how many rounds?</h2>
+        <div class="radio-buttons">
+            <label for="value5">5</label>
+            <input type="radio" name="value" id="value5">
+            <label for="value10">10</label>
+            <input type="radio" name="value" id="value10">
+            <label for="value15">15</label>
+            <input type="radio" name="value" id="value15">
+            <label for="value20">20</label>
+            <input type="radio" name="value" id="value20">
+        </div>
+      </section>
+      <section class="counter-container">
+        <div class="team">User</div>
+        <div class="team">Comp</div>
+        <div class="points-container">
+          <p class="points" id="user-points">0</p>
+          <p>:</p>
+          <p class="points" id="comp-points">0</p>
+        </div>
+      </section>
+      <section id="game-container">
+        <h2>Let's play</h2>
+        <button class="game-button" id="stone">Stein</button>
+        <button class="game-button" id="paper">Schere</button>
+        <button class="game-button" id="scissor">Papier</button>
+        <p>MAKE YOUR MOVE</p>
+      </section>
+      <section>
+        <button id="newGame">restart</button>
+      </section>
+    </main>
+  </body>
 </html>
