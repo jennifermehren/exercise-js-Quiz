@@ -12,22 +12,26 @@
   </head>
   <body>
     <header>
-      <h1>Rock Papier Scissors</h1>
+      <h1>Rock Paper Scissors</h1>
+      <div id="counter-container">
+        <p id="counter"></p>
+      </div>
     </header>
     <main>
       <section class="rounds-container">
         <h2>how many rounds?</h2>
         <div class="radio-buttons">
             <label for="value5">5</label>
-            <input type="radio" name="value" id="value5">
+            <input onclick="setRounds(5)" type="radio" name="value" id="value5" value="5">
             <label for="value10">10</label>
-            <input type="radio" name="value" id="value10">
+            <input onclick="setRounds(10)" type="radio" name="value" id="value10" value="10">
             <label for="value15">15</label>
-            <input type="radio" name="value" id="value15">
+            <input onclick="setRounds(15)" type="radio" name="value" id="value15" value="15">
             <label for="value20">20</label>
-            <input type="radio" name="value" id="value20">
+            <input onclick="setRounds(20)" type="radio" name="value" id="value20" value="20">
         </div>
       </section>
+      
       <section class="counter-container">
         <div class="team">User</div>
         <div class="team">Comp</div>
@@ -38,15 +42,17 @@
         </div>
       </section>
       <section id="game-container">
-        <h2>Let's play</h2>
-        <button class="game-button" id="stone">Stein</button>
-        <button class="game-button" id="paper">Schere</button>
-        <button class="game-button" id="scissor">Papier</button>
+        <h2 id="start-headline">Let's play</h2>
+        <h2 id="result"></h2>
+        <button class="game-button" id="stone" dataset="rock">Rock</button>
+        <button class="game-button" id="paper" dataset="paper">Paper</button>
+        <button class="game-button" id="scissor" dataset="scissor">Scissor</button>
         <p>MAKE YOUR MOVE</p>
       </section>
       <section>
         <button id="newGame">restart</button>
       </section>
     </main>
+    <script src="/assets/js/script.js"></script>
   </body>
 </html>

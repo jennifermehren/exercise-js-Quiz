@@ -5,12 +5,37 @@ body {
     text-align: center;
     font-family: 'Baloo Chettan 2', cursive;
     color: white;
-    /* height: 90vh; */
 }
 
 header{
+    position: relative;
+    height: 10vh;
+    width: 100%;
     background-color: white;
     color: black;
+}
+
+#counter-container{
+    visibility: hidden;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color:white;
+    background-color: black;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+#counter{
+    margin-top: 40%;
+    font-size: 1.3rem;
+ 
+}
+
+#result{
+    display: none;
 }
 
 section{
@@ -29,8 +54,8 @@ section{
 
 input:not(:last-of-type){
     margin-right: 1.5rem;
-    
 }
+
 
 
 .rounds-container{
