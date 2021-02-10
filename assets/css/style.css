@@ -91,7 +91,25 @@ input:not(:last-of-type){
 }
 
 
-.game-button{
+
+.disabled-buttons{
+    color:grey;
+    background-color: black;
+    width: 70px;
+    height: 70px;
+    border: 2px solid grey;
+    border-radius: 50%;
+    margin: 1rem;
+}
+
+.game-buttons{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: 1rem;
+}
+
+.active-buttons{
     color:white;
     background-color: black;
     width: 70px;
@@ -101,7 +119,7 @@ input:not(:last-of-type){
     margin: 1rem;
 }
 
-.game-button:hover{
+.active-buttons:hover{
     border: 2px solid rgb(77, 203, 77);
     color: rgb(77, 203, 77);
 }

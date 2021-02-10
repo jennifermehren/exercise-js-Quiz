@@ -8,12 +8,18 @@ let startHead = document.querySelector("#start-headline");
 let result = document.querySelector("#result");
 let compPoints = 0;
 let userPoints = 0;
+let refresh = document.getElementById("newGame");
 
-let allGameButtons = document.querySelectorAll(".game-button");
+
+let allGameButtons = document.querySelectorAll(".game-buttons");
+let radioButtons = document.getElementsByName("value"); 
+
 
 let stone = document.getElementById("stone");
 let paper = document.getElementById("paper");
 let scissor = document.getElementById("scissor");
+
+ 
 
 let compValue = ["scissor", "stone", "paper"];
 
@@ -26,12 +32,17 @@ function setRounds(i) {
   rounds = i;
   counter.innerHTML = `0 / ${i}`;
   counterContainer.style.visibility = "visible";
-  
-}
-//  let counter = (x) => {
-//   let container = document.querySelector(".rounds-container");
-//   x.createElement
-//   };
+};
+
+
+radioButtons.forEach((val) => {
+  val.addEventListener("click", () => {
+    allGameButtons.forEach((btn) => {
+     btn.classList.replace("disabled-buttons", "active-buttons")
+    });
+  })});
+
+
 
 // =============  Computer Choice Stein schere oder papier ===========
 
@@ -43,6 +54,12 @@ function randCompValue(choices) {
 
 allGameButtons.forEach((userChoice) => {
   userChoice.addEventListener("click", () => {
+
+    if (userChoice.classList.contains("disabled-buttons")){
+      alert("Bitte Runden auswählen");
+      return;
+    } 
+
     let user = userChoice.getAttribute("dataset");
     let comp = randCompValue(compValue);
 
@@ -53,7 +70,7 @@ allGameButtons.forEach((userChoice) => {
 
     let gameRes = result.innerHTML;
 
-    // ============   Spielergebnis für eine Runde ================
+  // ============   Spielergebnis für eine Runde ================
 
     if (user == comp) {
       gameRes = "Unentschieden";
@@ -78,8 +95,8 @@ allGameButtons.forEach((userChoice) => {
     }
 
    
-
     result.innerHTML = gameRes;
+    
     userCounter.innerHTML = userPoints;
     compCounter.innerHTML = compPoints;
     //  setTimeout(nextRound => {
@@ -88,8 +105,15 @@ allGameButtons.forEach((userChoice) => {
       //  result.innerHTML = "nächste Runde"
       // }, 2500);
   });
+  counter.innerHTML = `${userCounter.innerHTML+compCounter.innerHTML} / ${rounds}`;
 });
 
+
+// =========== restart Game =================
+
+refresh.addEventListener("click", () => {
+  location.reload();
+})
 // User Choice mit Computer Choice vergleichen
 
 // function userValue(x) {
