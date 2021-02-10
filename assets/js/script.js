@@ -1,5 +1,6 @@
 // ================= Variablen ===============
 let rounds;
+let clicks = 0;
 let counterContainer = document.querySelector("#counter-container");
 let counter = document.querySelector("#counter");
 let userCounter = document.querySelector("#user-points");
@@ -54,12 +55,13 @@ function randCompValue(choices) {
 
 allGameButtons.forEach((userChoice) => {
   userChoice.addEventListener("click", () => {
-
+    
     if (userChoice.classList.contains("disabled-buttons")){
       alert("Bitte Runden auswählen");
       return;
     } 
-
+    clicks++;
+    console.log(clicks);
     let user = userChoice.getAttribute("dataset");
     let comp = randCompValue(compValue);
 
@@ -69,6 +71,7 @@ allGameButtons.forEach((userChoice) => {
     userChoice.style.color = "rgb(77, 203, 77)";
 
     let gameRes = result.innerHTML;
+    counter.innerHTML = `${clicks} / ${rounds}`;
 
   // ============   Spielergebnis für eine Runde ================
 
@@ -99,13 +102,14 @@ allGameButtons.forEach((userChoice) => {
     
     userCounter.innerHTML = userPoints;
     compCounter.innerHTML = compPoints;
+    
     //  setTimeout(nextRound => {
       userChoice.style.border = "";
       userChoice.style.color = "";
       //  result.innerHTML = "nächste Runde"
       // }, 2500);
   });
-  counter.innerHTML = `${userCounter.innerHTML+compCounter.innerHTML} / ${rounds}`;
+  
 });
 
 
