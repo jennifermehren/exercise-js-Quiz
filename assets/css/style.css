@@ -31,7 +31,6 @@ header{
 #counter{
     margin-top: 40%;
     font-size: 1.3rem;
- 
 }
 
 #result{
@@ -41,9 +40,11 @@ header{
 section{
     margin: 1rem auto;
     padding: 1rem;
-    width: 50vw;
+    width: 350px;
     justify-content: center;
     align-items: center;
+    min-height: 100px;
+
     
 }
 
@@ -56,10 +57,10 @@ input:not(:last-of-type){
     margin-right: 1.5rem;
 }
 
-
-
-.rounds-container{
+.upper-container{
     border: 2px solid white;
+    display: flex;
+    border: 2px solid rgb(77, 203, 77)
 } 
 
 .counter-container{
@@ -77,6 +78,9 @@ input:not(:last-of-type){
 }
 
 .team{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     background-color: red;
     height: 2rem;
@@ -84,12 +88,11 @@ input:not(:last-of-type){
 }
 
 .team:first-of-type{
-    left: -2rem;
+    left: -2rem
 }
 .team:nth-child(2){
     right: -2rem;
 }
-
 
 
 .disabled-buttons{
@@ -128,6 +131,7 @@ input:not(:last-of-type){
     color: brown;
     background: black;
     text-decoration: underline;
+    font-size: 1rem;
 }
 
 #newGame:hover{
