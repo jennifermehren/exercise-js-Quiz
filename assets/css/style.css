@@ -44,8 +44,6 @@ section{
     justify-content: center;
     align-items: center;
     min-height: 100px;
-
-    
 }
 
 .radio-buttons{
@@ -60,8 +58,14 @@ input:not(:last-of-type){
 .upper-container{
     border: 2px solid white;
     display: flex;
-    border: 2px solid rgb(77, 203, 77)
 } 
+
+img{
+    display: none;
+    width: 200px;
+    margin: 0 auto;
+    
+}
 
 .counter-container{
    display: flex;
@@ -93,7 +97,6 @@ input:not(:last-of-type){
 .team:nth-child(2){
     right: -2rem;
 }
-
 
 .disabled-buttons{
     color:grey;

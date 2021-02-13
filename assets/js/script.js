@@ -1,45 +1,40 @@
 // ================= Variablen ===============
 let rounds;
 let clicks = 0;
+let compPoints = 0;
+let userPoints = 0;
+
 let counterContainer = document.querySelector("#counter-container");
 let upperContainer = document.querySelector(".upper-container");
-let radioContainer = document.querySelector(".radio-container")
+let radioContainer = document.querySelector(".radio-container");
+
 let counter = document.querySelector("#counter");
 let userCounter = document.querySelector("#user-points");
 let compCounter = document.querySelector("#comp-points");
 let startHead = document.querySelector("#start-headline");
 let result = document.querySelector("#result");
-let compPoints = 0;
-let userPoints = 0;
-let refresh = document.getElementById("newGame");
 
 let allGameButtons = document.querySelectorAll(".game-buttons");
 let radioButtons = document.getElementsByName("value");
 
-let rock = document.getElementById("rock");
-let paper = document.getElementById("paper");
-let scissor = document.getElementById("scissor");
-
 let compValue = ["scissor", "rock", "paper"];
 
-let compGameInput;
-let userGameInput;
+let refresh = document.getElementById("newGame");
 
-// ========== value aus RadioButtons ==========
-function setRounds(i) {
-  console.log(i);
-  rounds = i;
-  counter.innerHTML = `0 / ${i}`;
-  counterContainer.style.visibility = "visible";
-}
 
 // ========== Eventlistener für RadioButtons ==========
 radioButtons.forEach((val) => {
   val.addEventListener("click", () => {
     allGameButtons.forEach((btn) => {
       btn.classList.replace("disabled-buttons", "active-buttons");
-      upperContainer.innerHTML = "Lets-Play";
-      upperContainer.style.fontSize = "2rem";
+      let i = val.value;
+      rounds = i;
+      counter.innerHTML = `0 / ${i}`;
+      counterContainer.style.visibility = "visible";
+      upperContainer.innerHTML = ">> Lets Play <<";
+      upperContainer.style.fontSize = "1.8rem";
+      upperContainer.style.border = "2px solid rgb(77, 203, 77)";
+      startHead.innerHTML = "make your Move";
     });
   });
 });
@@ -53,24 +48,26 @@ function randCompValue(choices) {
 function gameEnd() {
   allGameButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      counterContainer.style.visibility = "hidden"; 
-        alert("Restart your Game");
-        location.reload();
-        return;
-      });
+      counterContainer.style.visibility = "hidden";
+      alert("Restart your Game");
+      location.reload();
+      return;
+    });
   });
 }
 
 // =========== next round ===============
 function hiddenBtns() {
   allGameButtons.forEach((btn) => {
-      btn.style.visibility = "hidden"; 
+    btn.style.display = "none";
+    upperContainer.style.border = "";
   });
 }
 
 function visiblBtns() {
   allGameButtons.forEach((btn) => {
-      btn.style.visibility = "visible"; 
+    btn.style.display = "";
+    upperContainer.style.border = "2px solid rgb(77, 203, 77)";
   });
 }
 
@@ -78,10 +75,10 @@ function visiblBtns() {
 allGameButtons.forEach((userChoice) => {
   userChoice.addEventListener("click", () => {
     if (userChoice.classList.contains("disabled-buttons")) {
-      alert("Bitte Runden auswählen");
+      alert("Please select rounds.");
       return;
     }
-    clicks++; 
+    clicks++;
     radioContainer = "";
 
     let user = userChoice.getAttribute("dataset");
@@ -89,39 +86,32 @@ allGameButtons.forEach((userChoice) => {
 
     startHead.style.display = "none";
     result.style.display = "block";
-    
+
     let gameRes = upperContainer.innerHTML;
     counter.innerHTML = `${clicks} / ${rounds}`;
     hiddenBtns();
+
     // ============   Spielergebnis für eine Runde ================
     console.log(user, comp);
     if (user == comp) {
-      gameRes = "Unentschieden";
-      
+      gameRes = `It was a draw. </br> You both chose ${user}.`;
     } else if (user == "rock" && comp == "paper") {
-      gameRes = "Stein verliert gegen Papier";
-      
+      gameRes = "rock loses against paper";
       compPoints++;
     } else if (user == "rock" && comp == "scissor") {
-      gameRes = "Stein gewinnt gegen Schere";
-      
+      gameRes = "rock wins against scissor";
       userPoints++;
     } else if (user == "paper" && comp == "rock") {
-      gameRes = "Papier gewinnt gegen Stein";
-      
+      gameRes = "paper wins against rock";
       userPoints++;
     } else if (user == "paper" && comp == "scissor") {
-      gameRes = "Papier verliert gegen Schere";
-     
+      gameRes = "paper loses against scissor";
       compPoints++;
     } else if (user == "scissor" && comp == "rock") {
-      gameRes = "Schere verliert gegen Stein";
-      
-      
+      gameRes = "scissor loses against rock";
       compPoints++;
     } else if (user == "scissor" && comp == "paper") {
-      gameRes = "Schere gewinnt gegen Papier";
-      
+      gameRes = "scissor wins against paper";
       userPoints++;
     }
 
@@ -131,31 +121,35 @@ allGameButtons.forEach((userChoice) => {
 
     if (clicks == rounds && userPoints > compPoints) {
       upperContainer.innerHTML = "You Are The Winner!";
+      hiddenBtns();
+      document.querySelector("#winGame").style.display = "block";
       gameEnd();
       return;
     } else if (clicks == rounds && userPoints < compPoints) {
       upperContainer.innerHTML = "You Are The Looser!";
+      hiddenBtns();
+      document.querySelector("#loseGame").style.display = "block";
       gameEnd();
       return;
     } else if (clicks == rounds && userPoints == compPoints) {
-      upperContainer.innerHTML = "You are not the winner, but even not the Looser.";
+      upperContainer.innerHTML =
+        "You are not the winner, </br> but are not the loser either.";
+      hiddenBtns();
+      document.querySelector("#drawGame").style.display = "block";
       gameEnd();
       return;
     }
 
     setTimeout(() => {
       if (clicks < rounds) {
-        upperContainer.innerHTML = "MAKE YOUR MOVE";
+        upperContainer.innerHTML = "make your move";
         visiblBtns();
       }
     }, 1800);
   });
 });
 
-
 // =========== restart Game =================
-
 refresh.addEventListener("click", () => {
   location.reload();
 });
-

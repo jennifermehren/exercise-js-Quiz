@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projekt Name</title>
+    <title>Stone Paper Scissor</title>
     <link rel="stylesheet" href="assets/css/style.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2&display=swap"
@@ -21,17 +21,17 @@
       <section class="upper-container">
         <div class="radio-buttons">
           <h2>how many rounds?</h2>
-            <label for="value5">5</label>
-            <input onclick="setRounds(5)" type="radio" name="value" id="value5" value="5">
-            <label for="value10">10</label>
-            <input onclick="setRounds(10)" type="radio" name="value" id="value10" value="10">
-            <label for="value15">15</label>
-            <input onclick="setRounds(15)" type="radio" name="value" id="value15" value="15">
-            <label for="value20">20</label>
-            <input onclick="setRounds(20)" type="radio" name="value" id="value20" value="20">
+          <label for="value5">5</label>
+          <input type="radio" name="value" id="value5" value="5" />
+          <label for="value10">10</label>
+          <input type="radio" name="value" id="value10" value="10" />
+          <label for="value15">15</label>
+          <input type="radio" name="value" id="value15" value="15" />
+          <label for="value20">20</label>
+          <input type="radio" name="value" id="value20" value="20" />
         </div>
       </section>
-      
+
       <section class="counter-container">
         <div class="team">User</div>
         <div class="team">Comp</div>
@@ -42,13 +42,43 @@
         </div>
       </section>
       <section id="game-container">
-        <h2 id="start-headline">MAKE YOUR MOVE</h2>
+        <h2 id="start-headline">Let's Play</h2>
         <h2 id="result"></h2>
-        <button class = "game-buttons disabled-buttons"  id="stone" dataset="rock">✊🏽</button>
-        <button class = "game-buttons disabled-buttons"  id="paper" dataset="paper">🤚🏼</button>
-        <button class = "game-buttons disabled-buttons"  id="scissor" dataset="scissor">✌🏼</button>
+        <img
+          id="drawGame"
+          src="https://media.giphy.com/media/WvvzzjiATjLVC5SlYg/giphy.gif"
+          alt="giph draw-Game"
+        />
+        <img
+          id="winGame"
+          src="https://media.giphy.com/media/9xhRHQBtG1C8EWiLyX/giphy-downsized.gif"
+          alt="giph winner"
+        />
+        <img
+          id="loseGame"
+          src="https://media.giphy.com/media/piTERt2CEdrLt2WLv0/giphy.gif"
+          alt="giph loser"
+        />
+
+        <button class="game-buttons disabled-buttons" id="stone" dataset="rock">
+          ✊🏽
+        </button>
+        <button
+          class="game-buttons disabled-buttons"
+          id="paper"
+          dataset="paper"
+        >
+          🤚🏼
+        </button>
+        <button
+          class="game-buttons disabled-buttons"
+          id="scissor"
+          dataset="scissor"
+        >
+          ✌🏼
+        </button>
       </section>
-      <section>
+      <section id="giph-container">
         <button id="newGame">restart</button>
       </section>
     </main>
